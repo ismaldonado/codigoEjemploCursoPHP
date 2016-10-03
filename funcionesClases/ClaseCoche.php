@@ -17,6 +17,10 @@ class ClaseCoche
       echo $this->color;
       echo '<br>';
   }
+  //Setter
+  public function setColor($cambiarColor){
+    $this->color=$cambiarColor;
+  }
   //Getters
   public function getColor(){
     return $this->color;
