@@ -17,8 +17,29 @@
     //Arrays
     $alturasPrimer=array(164,178,169,182);
     $alturasSegundo=[164,178,169,182];
-    //Mostrar un valor
-    echo $alturasPrimer[1];
+    //Mostrar una posicion del Array
+    echo "La posicion 0 del array es: " . $alturasSegundo[0];
+    echo "<br>";
+    echo "La posicion 2 del array es: " . $alturasSegundo[2];
+    echo "<br>";
+    //Modificar el contenido de una posicion
+    $alturasSegundo[2]=178;
+    echo "La nueva posicion 2 del array es: " . $alturasSegundo[2];
+    //Anyadir un nuevo elemento
+    $alturasSegundo[]=189;
+    echo "<br>";
+    echo "La nueva posicion 4 del array es: " . $alturasSegundo[4];
+    //Imprimir todos los elementos
+    echo "<br>------------<br>";
+    print_r($alturasSegundo);
+    echo "<br>------------<br>";
+    //Eleminar un elemento
+    unset($alturasSegundo[2]);
+    echo "<br>";
+    echo "La nueva posicion 3 del array es: " . $alturasSegundo[3];
+    echo "<br>------------<br>";
+    print_r($alturasSegundo);
+    echo "<br>------------<br>";
      ?>
   </body>
 </html>
