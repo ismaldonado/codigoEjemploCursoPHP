@@ -9,11 +9,12 @@
       include 'ClaseCoche.php';
 
       $coche1 = new ClaseCoche();
+      $coche1->getColor();
       $coche1->mostrarColor();
 
       $coche2 = new ClaseCoche();
       $coche2->mostrarColor();
-      $coche2->mostrarTipo();  
+      $coche2->mostrarTipo();
     ?>
   </body>
 </html>
