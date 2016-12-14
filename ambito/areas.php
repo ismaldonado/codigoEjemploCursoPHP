@@ -7,6 +7,7 @@ class areas
   //Variables e inicializacion
   public $area=0;
   private $lado=0;
+  private $altura=0;
 
   function __construct()
   {
@@ -50,6 +51,10 @@ class areas
         return $this->lado;
     }
 
+    private function comprobarNegativo($dato,&$valor){
+      if($dato<0)$valor = 0;
+      else $valor=$dato;
+    }
     /**
      * Set the value of Lado
      *
@@ -58,10 +63,19 @@ class areas
      */
     public function setLado($lado)
     {
-        if($lado<0)$this->lado = 0;
-        else $this->lado=$lado;
+        $this->comprobarNegativo($lado,$this->lado);
     }
 
+    /**
+     * Set the value of Lado
+     *
+     * @param mixed altura
+     *
+     */
+    public function setAltura($altura)
+    {
+        $this->comprobarNegativo($altura,$this->altura);
+    }
 }
 
  ?>

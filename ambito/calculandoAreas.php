@@ -13,8 +13,11 @@
     $areasObjeto= new areas();
 
     //Calcular el area
-    $areasObjeto->setLado(-3);
+    $areasObjeto->setLado(4);
+    $areasObjeto->comprobarNegativo(-3,$areaCuadrado);
     $areaCuadrado=$areasObjeto->calcularAreaCuadrado();
+
+    $areasObjeto->setAltura(4);
 
     //Imprimir por pantalla el area del calcularAreaCuadrado
     echo "El area del cuadrado es = ".$areaCuadrado;
