@@ -13,7 +13,8 @@
       echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }else{
       echo "<h3>Conexion realizada</h3><br><hr>";
-      $resultado = $mysqli->query("SELECT id,nombre,equipo FROM jugadores");
+      $resultado = $mysqli->query("SELECT id,nombre,equipo2 FROM jugadores");
+      if($resultado!=false){
       ?>
       <table border="1">
         <tr>
@@ -31,6 +32,9 @@
         //echo $fila['id']." ".$fila['nombre']." ".$fila['equipo']."<br>";
       }
       echo "</table>";
+    }else{
+      echo "CONSULTA SELECT ERRONEA";
+    }
     }
      ?>
   </body>
