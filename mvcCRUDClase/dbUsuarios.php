@@ -28,11 +28,27 @@ class dbUsuarios
   function hayError(){
     return $this->error;
   }
-
+  //Funciones para la insercion
+  function devolverUltimoUsuario(){
+    if($this->error==false){
+      $resultado = $this->conexion->query("SELECT * FROM usuario ORDER BY id DESC LIMIT 1");
+      return $resultado;
+    }else{
+      return null;
+    }
+  }
   //Funciones para la insercion
   function insertarUsuario($nombre,$apellidos,$edad){
     $sqlInsercion="INSERT INTO usuario(id,nombre,apellidos,edad)
         VALUES (NULL, '".$nombre."', '".$apellidos."', ".$edad.")";
+    $this->conexion->query($sqlInsercion);
+  }
+
+  //Funciones para la insercion
+  function actualizarUsuario($id,$nombre,$apellidos,$edad){
+    $sqlInsercion="UPDATE usuario
+    SET nombre='".$nombre."',apellidos='".$apellidos."',edad=".$edad.
+    " WHERE id=".$id;
     $this->conexion->query($sqlInsercion);
   }
 

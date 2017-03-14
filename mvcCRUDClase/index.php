@@ -5,7 +5,7 @@
     <title>Formulario</title>
   </head>
   <body>
-    <form class="" action="insertar.php" method="post">
+    <form class="" action="insertarForm.php" method="post">
       Nombre:<br>
       <input type="text" name="nombre" value=""><br>
       Apellidos:<br>
