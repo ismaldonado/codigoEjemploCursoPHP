@@ -45,20 +45,25 @@ include "./lib/Seguridad.php";
       }
       //Login de usuario
       elseif ($_POST["accion"]=="login") {
-        $usurioReg=$user->buscarUsuario($_POST["usuario"]);
-        if($usurioReg!=null)
-        {
-          //Comparamos los passwords
-          if($usurioReg["pass"]==sha1($_POST["pass0"])){
-            echo "<h2>Usuario encontrado</h2></br>";
-            $seguridad->addUsuario($usurioReg["usuario"]);
+        if($seguridad->comprobarRemember()){
+          echo "<h2>Usuario encontrado</h2></br>";
+        }else{
+          $usurioReg=$user->buscarUsuario($_POST["usuario"]);
+          if($usurioReg!=null)
+          {
+            //Comparamos los passwords
+            if($usurioReg["pass"]==sha1($_POST["pass0"])){
+              echo "<h2>Usuario encontrado</h2></br>";
+              if(isset($_POST["remember"])) $seguridad->addUsuario($usurioReg["usuario"],$usurioReg["pass"],true);
+              else $seguridad->addUsuario($usurioReg["usuario"],$usurioReg["pass"],false);
+            }else{
+              echo "<h2>Las contraseñas no coinciden</h2></br>";
+              echo "<a href=login.php>Volver al formulario de login</a>";
+            }
           }else{
-            echo "<h2>Las contraseñas no coinciden</h2></br>";
+            echo "<h2>Usuario no encontrado</h2></br>";
             echo "<a href=login.php>Volver al formulario de login</a>";
           }
-        }else{
-          echo "<h2>Usuario no encontrado</h2></br>";
-          echo "<a href=login.php>Volver al formulario de login</a>";
         }
       }
       //LogOut

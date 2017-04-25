@@ -17,9 +17,25 @@ class Seguridad
     return $this->usuario;
   }
 
-  public function addUsuario($usuario){
+  public function addUsuario($usuario,$pass,$remember=false){
+    //GEnerando la variable de sesion
     $_SESSION["usuario"]=$usuario;
     $this->usuario=$usuario;
+    //Almacenaremos el user/pass cookies
+    if($remember)
+    {
+      setcookie("usuario",$usuario,time()+(60*60));
+      setcookie("pass",$pass,time()+(60*60));
+    }
+  }
+
+  public function comprobarRemember(){
+    if(isset($_COOKIE["usuario"])){
+      $_SESSION["usuario"]=$_COOKIE["usuario"];
+      return true;
+    }else{
+      return false;
+    }
   }
 
   public function logOut(){
